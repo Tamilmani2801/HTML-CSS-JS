@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Arrow & cursor movement</title>
+    <style>
+        .arrow{
+            position: fixed;
+            height: 100px;
+            width: 100px;
+            background-color: green;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="arrow"></div>
+</body>
+</html>
+<script>
+    
+    let arrow = document.querySelector(".arrow");
+    let moveBy = 10;
+    document.addEventListener("mousemove", (e) => {
+            let x = e.pageX;
+            let y = e.pageY;
+            arrow.style.top = y + "px";
+            arrow.style.left = x + "px";
+        });
+
+    window.addEventListener('load',()=>{
+        arrow.style.position = 'absolute';
+        arrow.style.left = 0;
+        arrow.style.top = 0;
+    })
+
+    window.addEventListener('keyup', (e)=>{
+        switch(e.key){
+            case 'ArrowLeft':
+                arrow.style.left = parseInt(arrow.style.left) - moveBy + 'px';
+                break;
+            case 'ArrowRight':
+                arrow.style.left = parseInt(arrow.style.left) + moveBy + 'px';
+                break;
+            case 'ArrowUp':
+                arrow.style.top = parseInt(arrow.style.top) - moveBy + 'px';
+                break;
+            case 'ArrowDown':
+                arrow.style.top = parseInt(arrow.style.top) + moveBy + 'px';
+                break;
+        }
+    });
+
+</script>
