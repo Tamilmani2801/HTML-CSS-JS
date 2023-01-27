@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Arrow movement</title>
+    <style>
+        .arrow{
+            height: 100px;
+            width: 100px;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="arrow"></div>
+</body>
+</html>
+<script>
+    let arrow = document.querySelector(".arrow");
+    let moveBy = 10;
+
+    window.addEventListener('load',()=>{
+        arrow.style.position = 'absolute';
+        arrow.style.left = 0;
+        arrow.style.top = 0;
+    })
+
+    window.addEventListener('keyup', (e)=>{
+        switch(e.key){
+            case 'ArrowLeft':
+                arrow.style.left = parseInt(arrow.style.left) - moveBy + 'px';
+                break;
+            case 'ArrowRight':
+                arrow.style.left = parseInt(arrow.style.left) + moveBy + 'px';
+                break;
+            case 'ArrowUp':
+                arrow.style.top = parseInt(arrow.style.top) - moveBy + 'px';
+                break;
+            case 'ArrowDown':
+                arrow.style.top = parseInt(arrow.style.top) + moveBy + 'px';
+                break;
+        }
+    });
+
+</script>
